@@ -1,15 +1,18 @@
+import { useState } from "react";
+
 class DataBuffer<T> {
   data: T[];
+  setData: React.Dispatch<React.SetStateAction<T[]>>;
   bufferLength: number;
   constructor(bufferLength?: number) {
-    this.data = [];
+    [this.data, this.setData] = useState<T[]>([]);
     this.bufferLength = bufferLength || 10;
   }
 
   add(d: T) {
-    this.data.push(d);
+    this.setData([...this.data, d]);
     if (this.data.length > this.bufferLength) {
-      this.data.shift();
+      this.setData(this.data.slice(1));
     }
   }
 
