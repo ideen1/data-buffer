@@ -1,6 +1,10 @@
 import { useState } from "react";
 
+<<<<<<< HEAD
 export default class DataBuffer<T> {
+=======
+class DataBuffer<T> {
+>>>>>>> 6f7b7f21c64f1c497a7ed5e87c00cc6b2848e7a1
   data: T[];
   setData: React.Dispatch<React.SetStateAction<T[]>>;
   bufferLength: number;
